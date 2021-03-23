@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: msc-iptu
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: msc-iptu
+    res:
+      defaultMediaType: application/json
+
+server:
+  port: 8084
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+swagger:
+  version: 1.0
+  description : APIs STUR IPTU
