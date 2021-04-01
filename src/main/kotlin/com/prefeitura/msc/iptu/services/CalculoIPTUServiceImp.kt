@@ -15,6 +15,8 @@ class CalculoIPTUServiceImp(val sturClient: SturClient) : IptuService {
 
     override fun getValorIPTU(anoBase: String, imovelDTO: ImovelDTO): ImovelDTO {
 
+        println("CalculoIPTUServiceImp.getValorIPTU - start - anoBase ${anoBase}")
+
         var regrasDTO : RegrasDTO? = sturClient.getRegrasAno(anoBase)
 
         imovelDTO.anoBase = anoBase
@@ -25,12 +27,12 @@ class CalculoIPTUServiceImp(val sturClient: SturClient) : IptuService {
             this.valorVenalImovel(imovelDTO)
             this.valorImposto(imovelDTO, regrasDTO)
         }
-
+        println("CalculoIPTUServiceImp.getValorIPTU - end - imovelDTO ${imovelDTO}")
         return imovelDTO
     }
 
     private fun valorVenalTerreno(imovelDTO: ImovelDTO, regrasDTO: RegrasDTO){
-       imovelDTO.valorVenalTerreno =  (imovelDTO.areaTotal?.minus(imovelDTO.areaConstruida)) * (regrasDTO.valorMetroTerreno)
+       imovelDTO.valorVenalTerreno =  (imovelDTO.areaTotalTerreno?.minus(imovelDTO.areaConstruida)) * (regrasDTO.valorMetroTerreno)
     }
 
     private fun valorVenalConstrucao(imovelDTO: ImovelDTO, regrasDTO: RegrasDTO){

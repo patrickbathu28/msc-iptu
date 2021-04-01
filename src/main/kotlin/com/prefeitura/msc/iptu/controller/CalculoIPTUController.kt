@@ -22,7 +22,7 @@ class CalculoIPTUController {
     private var iptuService: IptuService? = null
 
     @ApiOperation(value = "Api de Calculo do IPTU com ano Base")
-    @PostMapping(path = arrayOf("{anoBase}/calculo"), produces= arrayOf(MediaType.APPLICATION_JSON_VALUE))
+    @PostMapping(path = arrayOf("/{anoBase}/calculo"), produces= arrayOf(MediaType.APPLICATION_JSON_VALUE))
     fun calculoIPTU(@PathVariable("anoBase") anoBase: String, @RequestBody imovelDTO: ImovelDTO):
             ResponseEntity<ImovelDTO> = ResponseEntity.status(HttpStatus.OK).body(iptuService?.getValorIPTU(anoBase, imovelDTO))
 
