@@ -8,6 +8,6 @@ data class ImovelDTO(
     var valorVenalConstrucao : Double? = null,
     var valorVenalTerreno : Double? = null,
     var valorVenalImovel : Double? = null,
-    var iptu : Double? = null,
+    var valorImposto : Double? = null,
     var anoBase : String? = null
 )
